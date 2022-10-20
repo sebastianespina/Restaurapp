@@ -1,0 +1,45 @@
+{% extends 'app/base.html' %}
+{% block contenido %}
+{% load humanize %}
+
+<br>
+<br>
+<br>
+
+<div class="card">
+    <div class="card-body">
+        <h2>Listado Productos Bodega</h2>
+        <hr>
+        <table class="table table-striped table-hover table-responsive-sm">
+            <tr>
+                <th>Nombre</th>
+                <th>Marca</th>
+                <th>Destribuidor</th>
+                <th>Precio c/u</th>
+                <th>Cantidad</th>
+                <th>Total</th>
+                <th>Fabricacion</th>
+                <th>Vencimiento</th>
+
+            </tr>
+        
+            {% for p in producto %}
+        
+            <tr>
+                <td>{{ p.nombre | title }}</td>
+                <td>{{ p.marca | title }}</td>
+                <td>{{ p.destribuidor | title }}</td>
+                <td>${{ p.precio | intcomma }}</td>
+                <td>{{ p.cantidad | title }}</td>
+                <td>${{ p.line_total | intcomma}}</td>
+                <td>{{ p.fecha_fabricacion | naturalday }}</td>
+                <td>{{ p.fecha_vencimiento | naturalday }}</td>
+        
+            </tr>
+            
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
+{% endblock %}

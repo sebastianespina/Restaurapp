@@ -7,7 +7,7 @@ class Plato(models.Model):
     precio = models.IntegerField()
     descripcion = models.TextField()
    
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 class Bebida(models.Model):
@@ -15,7 +15,7 @@ class Bebida(models.Model):
     precio = models.IntegerField()
     descripcion = models.TextField()
    
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 # Cliente
@@ -27,14 +27,14 @@ class Mesa(models.Model):
     descripcion = models.TextField()
 
     
-    def _str_(self):
+    def __str__(self):
         return self.numero
 
 # BODEGA
 class Marca(models.Model):
     nombre = models.CharField(max_length=50)
    
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 class Destribuidor(models.Model):
@@ -42,7 +42,7 @@ class Destribuidor(models.Model):
     telefono = models.IntegerField()
     correo = models.EmailField()
    
-    def _str_(self):
+    def __str__(self):
         return self.nombre
 
 class Producto(models.Model):
@@ -55,8 +55,11 @@ class Producto(models.Model):
     fecha_fabricacion = models.DateField()
     fecha_vencimiento = models.DateField()
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre
+
+    def line_total(self):
+        return self.cantidad * self.precio
 
 #  imagen = models.ImageField(upload_to="producto", null=True)
 
@@ -77,5 +80,5 @@ class Contacto(models.Model):
     avisos = models.BooleanField()
 
 
-    def _str_(self):
+    def __str__(self):
         return self.nombre
