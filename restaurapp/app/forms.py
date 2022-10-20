@@ -12,6 +12,18 @@ class ContactoForm(forms.ModelForm):
 
 class ProductoForm(forms.ModelForm):
 
+    nombre = forms.CharField(min_length=3, max_length=50)
+    precio = forms.IntegerField(min_value=1, max_value=1000000)
+
+    #def clean_nombre(self):
+        #nombre = self.cleaned_data["nombre"]
+        #existe = Producto.objects.filter(nombre__iexact=nombre).exists()
+
+        #if existe:
+            #raise ValidationError(" Ese nombre ya existe")
+
+        #return nombre
+
     class Meta:
         model = Producto
         fields = '__all__'
