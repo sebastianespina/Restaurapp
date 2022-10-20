@@ -24,7 +24,7 @@ class Mesa(models.Model):
     bebida = models.ForeignKey(Bebida, on_delete=models.PROTECT)
     hora_pedido = models.TimeField()
     descripcion = models.TextField()
-    
+
     
     def _str_(self):
         return self.numero
@@ -48,7 +48,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
-    destribuidor = models.ForeignKey(Destribuidor, ondelete=models.PROTECT)
+    destribuidor = models.ForeignKey(Destribuidor, on_delete=models.PROTECT)
     cantidad = models.IntegerField()
     descripcion = models.TextField()
     fecha_fabricacion = models.DateField()
