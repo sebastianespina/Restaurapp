@@ -57,3 +57,4 @@ class Producto(models.Model):
     def _str_(self):
         return self.nombre
 
+#  imagen = models.ImageField(upload_to="producto", null=True)
