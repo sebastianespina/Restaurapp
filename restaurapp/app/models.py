@@ -1,3 +1,4 @@
+from random import choices
 from django.db import models
 
 # Carta
@@ -39,7 +40,7 @@ class Marca(models.Model):
 class Destribuidor(models.Model):
     nombre = models.CharField(max_length=50)
     telefono = models.IntegerField()
-    correo = models.TextField()
+    correo = models.EmailField()
    
     def _str_(self):
         return self.nombre
@@ -58,3 +59,23 @@ class Producto(models.Model):
         return self.nombre
 
 #  imagen = models.ImageField(upload_to="producto", null=True)
+
+
+#Contacto
+opciones_consultas = [
+    [0, "consulta"],
+    [1, "reclamo"],
+    [2, "sugerencia"],
+    [3, "felicitaciones"]
+]
+
+class Contacto(models.Model):
+    nombre = models.CharField(max_length=50)
+    correo = models.EmailField()
+    tipoconsulta = models.IntegerField(choices=opciones_consultas)
+    mensaje =  models.TextField()
+    avisos = models.BooleanField()
+
+
+    def _str_(self):
+        return self.nombre
