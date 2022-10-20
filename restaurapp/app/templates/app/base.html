@@ -39,21 +39,28 @@
                         <a href="{% url 'carta' %}">Carta</a>
                     </li>
 
+                    <!--
                     <li>
                         <a href="{% url 'bodega' %}">bodega</a>
-                    </li>
+                    </li> -->
                     
-                    <li>
+                    <!--<li>
                         <a href="{% url 'contacto' %}">contacto</a>
-                    </li>
-
+                    </li> -->
+                    
+                    {% if perms.app.add_producto %}
                     <li>
                         <a href="{% url 'agregar_producto' %}">agregar producto</a>
                     </li>
+                    {% endif %}
 
+
+                    {% if perms.app.view_producto %}
                     <li>
                         <a href="{% url 'listar_producto' %}">listar producto</a>
                     </li>
+                    {% endif %}
+
 
                     {% if user.is_authenticated %}
                     <li>
@@ -68,6 +75,10 @@
                     <li>
                         <a href="{% url 'login' %}">iniciar sesion</a>
                     </li>
+
+                    <!--<li>
+                        <a href="{% url 'registro' %}">registrar usuario</a>
+                    </li>   -->
 
                     {% endif %}
 
