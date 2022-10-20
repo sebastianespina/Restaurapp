@@ -20,6 +20,7 @@
                 <th>Total</th>
                 <th>Fabricacion</th>
                 <th>Vencimiento</th>
+                <th>Opciones</th>
 
             </tr>
         
@@ -36,6 +37,11 @@
                 <td>{{ p.fecha_vencimiento | naturalday }}</td>
         
             </tr>
+            <td>
+
+                <a href="{% url 'modificar_producto' p.id %}" class="btn btn-info btn-sm">modificar</a>
+                <a href="{% url 'eliminar_producto' p.id %}" class="btn btn-danger btn-sm">eliminar</a>
+            </td>
             
             {% endfor %}
 
