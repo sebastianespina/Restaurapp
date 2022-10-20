@@ -17,7 +17,7 @@ class Bebida(models.Model):
     def _str_(self):
         return self.nombre
 
-# MESERO
+# Cliente
 class Mesa(models.Model):
     numero = models.IntegerField()
     plato = models.ForeignKey(Plato, on_delete=models.PROTECT)
