@@ -37,7 +37,7 @@ class Marca(models.Model):
     def __str__(self):
         return self.nombre
 
-class Destribuidor(models.Model):
+class Distribuidor(models.Model):
     nombre = models.CharField(max_length=50)
     telefono = models.IntegerField()
     correo = models.EmailField()
@@ -49,7 +49,7 @@ class Producto(models.Model):
     nombre = models.CharField(max_length=50)
     precio = models.IntegerField()
     marca = models.ForeignKey(Marca, on_delete=models.PROTECT)
-    destribuidor = models.ForeignKey(Destribuidor, on_delete=models.PROTECT)
+    distribuidor = models.ForeignKey(Distribuidor, on_delete=models.PROTECT)
     cantidad = models.IntegerField()
     descripcion = models.TextField()
     fecha_fabricacion = models.DateField()
